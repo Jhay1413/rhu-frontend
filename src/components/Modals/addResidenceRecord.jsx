@@ -30,12 +30,13 @@ const normFile = (e) => {
 const ResidentsProfileForm = ({isModalOpen,onOk,onCancel}) => {
   const queryClient = useQueryClient();
   const currentHousehold = queryClient.getQueryData(['households'])
- 
+    
     const [componentDisabled, setComponentDisabled] = useState(true);
     const [residentData,setResidentData] = useState({
         first_name:"",
         last_name:"",
         age:"",
+        age_in_months: "",
         address:"",
         contact_number:"",
         email:"",
@@ -45,6 +46,7 @@ const ResidentsProfileForm = ({isModalOpen,onOk,onCancel}) => {
         household_id:"",
 
     });
+  
     const { mutate } = useAddResident();
     const handleOnChange = (e) => {
 
@@ -69,6 +71,7 @@ const ResidentsProfileForm = ({isModalOpen,onOk,onCancel}) => {
             first_name:"",
             last_name:"",
             age:"",
+            age_in_months: "",
             address:"",
             contact_number:"",
             email:"",
@@ -83,6 +86,7 @@ const ResidentsProfileForm = ({isModalOpen,onOk,onCancel}) => {
         onError: (error) => {
           // Handle error
           console.error('Error adding household:', error);
+          
         },
       });
     };
@@ -91,7 +95,7 @@ const ResidentsProfileForm = ({isModalOpen,onOk,onCancel}) => {
       <Modal open={isModalOpen} onOk={onOk} onCancel={onCancel} width={'50%'} footer={false}>
         <Form
          
-          layout="horizontal"
+         layout="vertical"
          
           className='max-w-full items-center justify-center'
         >
@@ -111,7 +115,7 @@ const ResidentsProfileForm = ({isModalOpen,onOk,onCancel}) => {
             </Form.Item>
             <Form.Item label="Contact Number" className='col-span-2'>
               <Input name="contact_number"  value={residentData.contact_number} onChange={handleOnChange}/>
-            </Form.Item>
+            </Form.Item>  
             <Form.Item label="Email" >
               <Input name="email"  value={residentData.email} onChange={handleOnChange}/>
             </Form.Item>
@@ -124,7 +128,10 @@ const ResidentsProfileForm = ({isModalOpen,onOk,onCancel}) => {
             <Form.Item label="Age">
               <Input name="age"  value={residentData.age} onChange={handleOnChange}/>
             </Form.Item>
-            <Form.Item label="sex">
+            <Form.Item label="Age in month">
+              <Input name="age_in_months"  value={residentData.age_in_months} onChange={handleOnChange}/>
+            </Form.Item>
+            <Form.Item label="sex" className='col-span-2'>
               <Select  name="sex" onChange={(value) => handleSelectOnChange(value, { name: 'sex' })}>
                 <Select.Option value="male">Male</Select.Option>
                 <Select.Option value="female">Female</Select.Option>

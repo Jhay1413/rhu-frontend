@@ -123,7 +123,9 @@ const PatientRecordModal = ({isModalOpen,onOk,onCancel}) => {
                       email:"",
                       occupation:"",
                       sex:"",
-                      appointmentType:null
+                      appointmentType:null,
+                      weight: null,
+                      weight_status
                     })
                     setImmunizationData({});
                   // Handle success, "data" is the server response
@@ -315,6 +317,12 @@ const ImmunizationForm = ({onChange})=>{
                 </Form.Item>
                 <Form.Item label="Vaccination Site" className='col-span-2'>
                   <Input name="vaccination_site" onChange={handleInputChange}  />
+                </Form.Item>
+                <Form.Item label="Weight" >
+                  <Input name="weight" onChange={handleInputChange}  />
+                </Form.Item>
+                <Form.Item label="Weight Status">
+                  <Input name="weight_status" onChange={handleInputChange}  />
                 </Form.Item>
               
                 <Form.Item label="Vaccination Notes" className="col-span-4">

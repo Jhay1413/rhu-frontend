@@ -14,3 +14,11 @@ export const getHouseholdApi = async() =>{
         console.log(error);
     }
 }
+export const getAllHouseholdsWithRelationApi = async() =>{
+    try {
+        const response = await axios.get('http://127.0.0.1:8000/api/getAllHouseholdsWithRelation');
+        return response.data
+    } catch (error) {
+        console.log(error);
+    }
+}

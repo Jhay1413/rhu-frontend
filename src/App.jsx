@@ -10,6 +10,9 @@ import HouseHoldRecord from './views/houseHoldRecord'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import ResidenceRecord from './views/residenceRecord'
 import QueryDataProvider from './Queryprovider/QueryProvider'
+import FamilyProfile from './views/familyProfile'
+import FamilyProfileReport from './views/familyProfileReport'
+import WeightMonthlyRecord from './views/weightMonthlyRecord'
 
 function App() {
   const queryClient = new QueryClient()
@@ -25,6 +28,9 @@ function App() {
               <Route path="/patientRecord" element={<PatientRecord/>}/>
               <Route path="/householdRecord" element={<HouseHoldRecord/>}/>
               <Route path="/residenceRecord" element={<ResidenceRecord/>}/>
+              <Route path="/familyProfile" element={<FamilyProfile/>}/>
+              <Route path="/familyProfileReport" element={<FamilyProfileReport/>}/>
+              <Route path="/weightReport" element={<WeightMonthlyRecord/>}/>
             </Routes>
         </QueryDataProvider>
         </AdminLayout>

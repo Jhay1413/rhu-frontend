@@ -24,17 +24,21 @@ const items = [
     getItem('Patient Record', '3'),
     getItem('Household records', '4'),
     getItem('Residence Record', '5'),
+    getItem('Family Profile', '6'),
   ]),
   getItem('Events', 'sub2', <TeamOutlined />, [
-    getItem('Event Records', '6'), 
-    getItem('Event Paticipants', '7'),
-    getItem('SMS', '8')]),
+    getItem('Event Records', '7'), 
+    getItem('Event Paticipants', '8'),
+    getItem('SMS', '9')]),
   getItem('Accounts', 'sub3', <FileOutlined />,[
-    getItem('User Account','9'),
+    getItem('User Account','10'),
   ]),
   getItem('Settings', 'sub4', <TeamOutlined />, [
-    getItem('Archieve', '10'), 
-    getItem('Documents', '11'),
+    getItem('Archieve', '11'), 
+    getItem('Documents', '12'),
+  ]),
+  getItem('Reports', 'sub5', <TeamOutlined />, [
+    getItem('Family Profile Report', '13')
   ])
 ];
 const AdminSideBar = () => {
@@ -53,7 +57,17 @@ const AdminSideBar = () => {
         else if(e.key === '5'){
           navigate('/residenceRecord')
         }
+        else if(e.key === '6'){
+          navigate('/familyProfile')
+        }
+        else if(e.key === '13'){
+          navigate('/familyProfileReport')
+        }
+        else if(e.key === '14'){
+          navigate('/weightReport')
+        }
         
+
     }
     return ( 
       <>

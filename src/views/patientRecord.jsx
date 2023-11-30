@@ -106,6 +106,18 @@ const immunizaion_columns = [
     key: 'next_vaccination_date',
     dataIndex: 'next_vaccination_date',
   },
+  {
+    title: 'Weight',
+    key: 'weight',
+    dataIndex: 'weight',
+  },
+  {
+    title: 'Weight Status',
+    key: 'weight_status',
+    dataIndex: 'weight_status',
+  },
+  
+
 
   
   {

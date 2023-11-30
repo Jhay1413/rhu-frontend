@@ -1,9 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
-import { addHouseholdApi, getHouseholdApi } from "../api/houseHoldRecordApi"
+import { addHouseholdApi, getAllHouseholdsWithRelationApi, getHouseholdApi } from "../api/houseHoldRecordApi"
 
 export const useHouseHolds = () => {
     return useQuery({queryKey:['households'],queryFn:getHouseholdApi})
 }   
+export const useGetHouseholdRelation = () =>{
+    return useQuery({queryKey:['householdsWithRelation'],queryFn:getAllHouseholdsWithRelationApi})
+}
 export const useAddHouseHold = () =>{
     
     const queryClient = useQueryClient();

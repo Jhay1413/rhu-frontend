@@ -1,4 +1,5 @@
-import { useHouseHolds } from "../hooks/useHouseHolds";
+import { useFamilyProfile } from "../hooks/useFamilyProfile";
+import { useGetHouseholdRelation, useHouseHolds } from "../hooks/useHouseHolds";
 import { useImmunization, usePatientPrenatal } from "../hooks/usePatient";
 import { useResident } from "../hooks/useResident";
 
@@ -8,11 +9,15 @@ const QueryDataProvider = ({children}) => {
     const households = useHouseHolds();
     const prenatalData = usePatientPrenatal();
     const immunizationData = useImmunization();
+    const familyProfile = useFamilyProfile();
+    const householdWithRelation = useGetHouseholdRelation();
     const dataSources = [
         residents,
         households,
         prenatalData,
-        immunizationData
+        immunizationData,
+        familyProfile,
+        householdWithRelation
       ];
         
       const isLoading = dataSources.some((source) => source.isLoading);
